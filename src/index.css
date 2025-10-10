@@ -8,40 +8,42 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
+    --background: 240 10% 3.9%;
     --foreground: 210 40% 98%;
 
-    --card: 224 40% 15%;
+    --card: 240 6% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 224 40% 15%;
+    --popover: 240 6% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 189 100% 56%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 200 100% 60%;
+    --primary-foreground: 240 10% 3.9%;
 
-    --secondary: 271 81% 56%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 280 100% 70%;
+    --secondary-foreground: 240 10% 3.9%;
 
-    --muted: 217 33% 17%;
+    --accent: 330 100% 65%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --muted: 240 5% 25%;
     --muted-foreground: 215 20% 65%;
-
-    --accent: 271 81% 56%;
-    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 25%;
-    --input: 217 33% 25%;
-    --ring: 189 100% 56%;
+    --border: 240 5% 20%;
+    --input: 240 5% 20%;
+    --ring: 200 100% 60%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(189 100% 56%) 0%, hsl(271 81% 56%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(224 40% 18%) 100%);
-    --glow-primary: 0 0 40px hsla(189, 100%, 56%, 0.3);
-    --glow-secondary: 0 0 40px hsla(271, 81%, 56%, 0.3);
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 60%) 0%, hsl(280 100% 70%) 50%, hsl(330 100% 65%) 100%);
+    --gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(200 100% 60% / 0.2), transparent);
+    --gradient-card: linear-gradient(135deg, hsl(240 6% 12%) 0%, hsl(240 6% 8%) 100%);
+    --glow-primary: 0 0 80px hsla(200, 100%, 60%, 0.4), 0 0 40px hsla(200, 100%, 60%, 0.3);
+    --glow-secondary: 0 0 80px hsla(280, 100%, 70%, 0.4), 0 0 40px hsla(280, 100%, 70%, 0.3);
+    --glow-accent: 0 0 60px hsla(330, 100%, 65%, 0.3);
   }
 }
 
@@ -53,6 +55,8 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, hsl(240 10% 3.9%), hsl(240 8% 6%));
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -66,6 +70,7 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: brightness(1.2);
   }
 
   .glow-primary {
@@ -76,8 +81,25 @@ All colors MUST be HSL.
     box-shadow: var(--glow-secondary);
   }
 
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .glass-card {
+    background: linear-gradient(135deg, 
+      hsla(240, 6%, 12%, 0.8) 0%, 
+      hsla(240, 6%, 8%, 0.6) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(240, 5%, 30%, 0.3);
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
   }
 
   @keyframes float {
@@ -86,6 +108,24 @@ All colors MUST be HSL.
     }
     50% {
       transform: translateY(-20px);
+    }
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
     }
   }
 }
