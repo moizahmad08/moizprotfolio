@@ -3,8 +3,25 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code2, Workflow, Brain, Layers, Mail, Github, Linkedin } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import profileImg from "@/assets/profile.jpg";
 
 const Index = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleContactClick = () => {
+    window.location.href = 'mailto:your.email@example.com';
+  };
+
+  const handleGithubClick = () => {
+    window.open('https://github.com/yourusername', '_blank');
+  };
+
+  const handleLinkedinClick = () => {
+    window.open('https://linkedin.com/in/yourusername', '_blank');
+  };
   const skills = [
     { icon: Brain, name: "AI Development", color: "text-primary" },
     { icon: Code2, name: "Web Development", color: "text-secondary" },
@@ -33,6 +50,18 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8 animate-in fade-in duration-1000">
+            {/* Profile Picture */}
+            <div className="flex justify-center mb-8">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
+                <img 
+                  src={profileImg} 
+                  alt="Profile"
+                  className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-primary/30 shadow-2xl group-hover:scale-105 transition-transform"
+                />
+              </div>
+            </div>
+
             <div className="space-y-4">
               <h1 className="text-5xl md:text-7xl font-bold">
                 Hi, I'm an <span className="gradient-text">AI Developer</span>
@@ -43,20 +72,39 @@ const Index = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="glow-primary group">
+              <Button 
+                size="lg" 
+                className="glow-primary group"
+                onClick={handleContactClick}
+              >
                 <Mail className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 Get In Touch
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-primary text-primary hover:bg-primary/10"
+                onClick={() => scrollToSection('projects')}
+              >
                 View Projects
               </Button>
             </div>
 
             <div className="flex gap-4 justify-center pt-4">
-              <Button size="icon" variant="ghost" className="hover:text-primary transition-colors">
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                className="hover:text-primary transition-colors"
+                onClick={handleGithubClick}
+              >
                 <Github className="h-5 w-5" />
               </Button>
-              <Button size="icon" variant="ghost" className="hover:text-primary transition-colors">
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                className="hover:text-primary transition-colors"
+                onClick={handleLinkedinClick}
+              >
                 <Linkedin className="h-5 w-5" />
               </Button>
             </div>
@@ -153,7 +201,7 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section className="py-20 px-4">
+      <section id="projects" className="py-20 px-4 scroll-mt-20">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
             Featured <span className="gradient-text">Projects</span>
@@ -263,7 +311,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-background to-card">
+      <section id="contact" className="py-20 px-4 bg-gradient-to-b from-background to-card scroll-mt-20">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Let's <span className="gradient-text">Work Together</span>
@@ -271,7 +319,11 @@ const Index = () => {
           <p className="text-xl text-muted-foreground mb-10">
             Have a project in mind? Let's create something amazing!
           </p>
-          <Button size="lg" className="glow-primary text-lg px-8">
+          <Button 
+            size="lg" 
+            className="glow-primary text-lg px-8"
+            onClick={handleContactClick}
+          >
             <Mail className="mr-2 h-5 w-5" />
             Contact Me
           </Button>
