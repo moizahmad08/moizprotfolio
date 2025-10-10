@@ -159,29 +159,105 @@ const Index = () => {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-center text-muted-foreground mb-16 text-lg">
-            Coming soon - showcase of my best work
+            Real-world applications showcasing AI integration and automation
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((item) => (
-              <Card 
-                key={item}
-                className="group overflow-hidden bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 transition-all duration-300"
-              >
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                  <Code2 className="h-16 w-16 text-primary/50 group-hover:scale-110 transition-transform" />
+            {/* Project 1: Python Management Server */}
+            <Card className="group overflow-hidden bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105">
+              <div className="aspect-video bg-gradient-to-br from-primary/30 to-background flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
+                <Code2 className="h-16 w-16 text-primary relative z-10 group-hover:scale-110 group-hover:rotate-6 transition-transform" />
+              </div>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    Python Management Server
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary" className="text-xs">Python</Badge>
+                    <Badge variant="secondary" className="text-xs">CLI</Badge>
+                    <Badge variant="secondary" className="text-xs">Backend</Badge>
+                  </div>
                 </div>
-                <div className="p-6 space-y-3">
-                  <h3 className="text-xl font-semibold">Project {item}</h3>
-                  <p className="text-muted-foreground">
-                    Description of the project will go here. Add your projects to showcase your work.
-                  </p>
-                  <Button variant="ghost" className="text-primary hover:text-primary/80 p-0">
-                    View Details →
-                  </Button>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Console-based server management system built with Python. Features automated task scheduling, 
+                  resource monitoring, and real-time system health checks with comprehensive logging.
+                </p>
+                <div className="space-y-2 pt-2">
+                  <p className="text-xs text-muted-foreground font-semibold">Key Features:</p>
+                  <ul className="text-xs text-muted-foreground space-y-1">
+                    <li>• Automated task orchestration</li>
+                    <li>• Real-time monitoring & alerts</li>
+                    <li>• Multi-threaded processing</li>
+                  </ul>
                 </div>
-              </Card>
-            ))}
+              </div>
+            </Card>
+
+            {/* Project 2: N8N AI Agent Workflow */}
+            <Card className="group overflow-hidden bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105">
+              <div className="aspect-video bg-gradient-to-br from-secondary/30 to-background flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
+                <Brain className="h-16 w-16 text-secondary relative z-10 group-hover:scale-110 group-hover:rotate-6 transition-transform" />
+              </div>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    AI Agent Workflow System
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary" className="text-xs">N8N</Badge>
+                    <Badge variant="secondary" className="text-xs">OpenAI</Badge>
+                    <Badge variant="secondary" className="text-xs">Automation</Badge>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Intelligent workflow automation using N8N with AI agents. Handles data processing, 
+                  decision-making, and task execution through sophisticated AI-powered logic chains.
+                </p>
+                <div className="space-y-2 pt-2">
+                  <p className="text-xs text-muted-foreground font-semibold">Capabilities:</p>
+                  <ul className="text-xs text-muted-foreground space-y-1">
+                    <li>• Multi-step AI reasoning</li>
+                    <li>• Dynamic workflow branching</li>
+                    <li>• External API orchestration</li>
+                  </ul>
+                </div>
+              </div>
+            </Card>
+
+            {/* Project 3: AI Chatbot Platform */}
+            <Card className="group overflow-hidden bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105">
+              <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
+                <Workflow className="h-16 w-16 text-primary relative z-10 group-hover:scale-110 group-hover:rotate-6 transition-transform" />
+              </div>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    N8N AI Chatbot Integration
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary" className="text-xs">N8N</Badge>
+                    <Badge variant="secondary" className="text-xs">NLP</Badge>
+                    <Badge variant="secondary" className="text-xs">Webhooks</Badge>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Enterprise-grade chatbot built with N8N workflows. Features natural language processing, 
+                  context retention, and seamless integration with multiple communication platforms.
+                </p>
+                <div className="space-y-2 pt-2">
+                  <p className="text-xs text-muted-foreground font-semibold">Features:</p>
+                  <ul className="text-xs text-muted-foreground space-y-1">
+                    <li>• Multi-channel deployment</li>
+                    <li>• Context-aware responses</li>
+                    <li>• Custom intent recognition</li>
+                  </ul>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
