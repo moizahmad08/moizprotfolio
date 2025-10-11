@@ -1,18 +1,22 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code2, Workflow, Brain, Layers, Mail, Github, Linkedin } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImg from "@/assets/profile.jpg";
+import { ContactDialog } from "@/components/ContactDialog";
 
 const Index = () => {
+  const [contactOpen, setContactOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleContactClick = () => {
-    window.location.href = 'mailto:moizahmadkhan08@gmail.com';
+    setContactOpen(true);
   };
 
   const handleGithubClick = () => {
@@ -36,7 +40,9 @@ const Index = () => {
   ];
 
   return (
-    <main className="min-h-screen">
+    <>
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
+      <main className="min-h-screen">
       {/* Hero Section */}
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -354,6 +360,7 @@ const Index = () => {
         </div>
       </footer>
     </main>
+    </>
   );
 };
 
