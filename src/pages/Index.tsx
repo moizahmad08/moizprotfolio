@@ -12,15 +12,15 @@ const Index = () => {
   };
 
   const handleContactClick = () => {
-    window.location.href = 'mailto:your.email@example.com';
+    window.location.href = 'mailto:moizahmadkhan08@gmail.com';
   };
 
   const handleGithubClick = () => {
-    window.open('https://github.com/yourusername', '_blank');
+    window.open('https://github.com/moizahmad08', '_blank');
   };
 
   const handleLinkedinClick = () => {
-    window.open('https://linkedin.com/in/yourusername', '_blank');
+    window.open('https://www.linkedin.com/in/moiz-ahmad-7a9617324/', '_blank');
   };
   const skills = [
     { icon: Brain, name: "AI Development", color: "text-primary" },
