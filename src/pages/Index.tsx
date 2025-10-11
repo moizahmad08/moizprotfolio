@@ -2,10 +2,16 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Workflow, Brain, Layers, Mail, Github, Linkedin } from "lucide-react";
+import { Code2, Workflow, Brain, Layers, Mail, Github, Linkedin, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImg from "@/assets/profile.jpg";
 import { ContactDialog } from "@/components/ContactDialog";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
+import { StatsSection } from "@/components/StatsSection";
+import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { ServicesSection } from "@/components/ServicesSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
@@ -26,6 +32,16 @@ const Index = () => {
   const handleLinkedinClick = () => {
     window.open('https://www.linkedin.com/in/moiz-ahmad-7a9617324/', '_blank');
   };
+
+  const handleDownloadResume = () => {
+    // Create a temporary link and trigger download
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // User should add their resume.pdf to public folder
+    link.download = 'Moiz_Ahmad_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   const skills = [
     { icon: Brain, name: "AI Development", color: "text-primary" },
     { icon: Code2, name: "Web Development", color: "text-secondary" },
@@ -41,7 +57,9 @@ const Index = () => {
 
   return (
     <>
+      <ScrollProgress />
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
+      <BackToTop />
       <main className="min-h-screen">
       {/* Hero Section */}
       <section 
@@ -104,6 +122,15 @@ const Index = () => {
               >
                 View Projects
               </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-secondary/50 text-secondary hover:bg-secondary/20 hover:border-secondary hover:shadow-lg hover:shadow-secondary/50 transition-all duration-300 backdrop-blur-sm"
+                onClick={handleDownloadResume}
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Resume
+              </Button>
             </div>
 
             <div className="flex gap-4 justify-center pt-4">
@@ -133,6 +160,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Stats Section */}
+      <StatsSection />
 
       {/* Skills Section */}
       <section className="py-20 px-4 relative">
@@ -193,6 +223,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Services Section */}
+      <ServicesSection />
+
       {/* About Section */}
       <section className="py-20 px-4 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent" />
@@ -218,6 +251,9 @@ const Index = () => {
           </Card>
         </div>
       </section>
+
+      {/* Experience Timeline */}
+      <ExperienceTimeline />
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 scroll-mt-20">
@@ -329,6 +365,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 relative scroll-mt-20">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
@@ -354,9 +393,92 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-border/50">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <p>© 2024 AI Developer Portfolio. Built with React & Tailwind CSS</p>
+      <footer className="py-12 px-4 border-t border-border/50 bg-card/30 backdrop-blur-sm">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            {/* About Column */}
+            <div className="md:col-span-2 space-y-4">
+              <h3 className="text-xl font-bold gradient-text">AI Developer</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Building intelligent solutions with AI, automation, and modern web technologies.
+                Let's create something amazing together.
+              </p>
+              <div className="flex gap-3">
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="hover:text-primary transition-colors hover:bg-primary/10"
+                  onClick={handleGithubClick}
+                >
+                  <Github className="h-5 w-5" />
+                </Button>
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="hover:text-primary transition-colors hover:bg-primary/10"
+                  onClick={handleLinkedinClick}
+                >
+                  <Linkedin className="h-5 w-5" />
+                </Button>
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="hover:text-primary transition-colors hover:bg-primary/10"
+                  onClick={handleContactClick}
+                >
+                  <Mail className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="space-y-4">
+              <h4 className="font-semibold text-foreground">Quick Links</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <button
+                    onClick={() => scrollToSection('projects')}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Projects
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection('contact')}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Contact
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={handleDownloadResume}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Resume
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div className="space-y-4">
+              <h4 className="font-semibold text-foreground">Services</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>AI Integration</li>
+                <li>Web Development</li>
+                <li>N8N Workflows</li>
+                <li>API Development</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="pt-8 border-t border-border/50 text-center">
+            <p className="text-muted-foreground text-sm">
+              © 2024 Moiz Ahmad. Built with React, TypeScript & Tailwind CSS
+            </p>
+          </div>
         </div>
       </footer>
     </main>
