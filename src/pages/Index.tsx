@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Workflow, Brain, Layers, Mail, Github, Linkedin, Download } from "lucide-react";
+import { Code2, Workflow, Brain, Layers, Mail, Github, Linkedin, Download, UtensilsCrossed } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImg from "@/assets/profile.jpg";
 import { ContactDialog } from "@/components/ContactDialog";
@@ -266,33 +266,34 @@ const Index = () => {
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Project 1: Python Management Server */}
+            {/* Project 1: Food Management System */}
             <Card className="group overflow-hidden glass-card border-border/50 hover:border-primary/70 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 animate-fade-in">
               <div className="aspect-video bg-gradient-to-br from-primary/20 via-secondary/10 to-background flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
-                <Code2 className="h-16 w-16 text-primary relative z-10 group-hover:scale-110 group-hover:rotate-6 transition-transform" />
+                <UtensilsCrossed className="h-16 w-16 text-primary relative z-10 group-hover:scale-110 group-hover:rotate-6 transition-transform" />
               </div>
               <div className="p-6 space-y-4">
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                    Python Management Server
+                    Food Management System
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="secondary" className="text-xs">Python</Badge>
+                    <Badge variant="secondary" className="text-xs">OOP</Badge>
                     <Badge variant="secondary" className="text-xs">CLI</Badge>
-                    <Badge variant="secondary" className="text-xs">Backend</Badge>
                   </div>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Console-based server management system built with Python. Features automated task scheduling, 
-                  resource monitoring, and real-time system health checks with comprehensive logging.
+                  Comprehensive restaurant management system with admin authentication, menu management, and order processing. 
+                  Built with Python OOP principles featuring separate interfaces for administrators and customers.
                 </p>
                 <div className="space-y-2 pt-2">
                   <p className="text-xs text-muted-foreground font-semibold">Key Features:</p>
                   <ul className="text-xs text-muted-foreground space-y-1">
-                    <li>• Automated task orchestration</li>
-                    <li>• Real-time monitoring & alerts</li>
-                    <li>• Multi-threaded processing</li>
+                    <li>• Admin & customer authentication</li>
+                    <li>• Real-time order tracking system</li>
+                    <li>• Menu CRUD operations</li>
+                    <li>• Multi-status order management</li>
                   </ul>
                 </div>
               </div>
