@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Workflow, Brain, Layers, Mail, Github, Linkedin, Download, UtensilsCrossed } from "lucide-react";
+import { Code2, Workflow, Brain, Layers, Mail, Github, Linkedin, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImg from "@/assets/profile.jpg";
 import { ContactDialog } from "@/components/ContactDialog";
@@ -18,6 +18,16 @@ import { ProjectsWithFilter } from "@/components/ProjectsWithFilter";
 import { CertificationsBadges } from "@/components/CertificationsBadges";
 import { Newsletter } from "@/components/Newsletter";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Navigation } from "@/components/Navigation";
+import { CodeRain } from "@/components/CodeRain";
+import { AIAssistant } from "@/components/AIAssistant";
+import { CodePlayground } from "@/components/CodePlayground";
+import { GitHubActivity } from "@/components/GitHubActivity";
+import { VoiceControl } from "@/components/VoiceControl";
+import { SkillTree } from "@/components/SkillTree";
+import { ThemeCustomizer } from "@/components/ThemeCustomizer";
+import { PerformanceMetrics } from "@/components/PerformanceMetrics";
+import { SkillsSphere3D } from "@/components/SkillsSphere3D";
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
@@ -63,9 +73,13 @@ const Index = () => {
 
   return (
     <>
+      <Navigation />
       <ScrollProgress />
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
       <BackToTop />
+      <AIAssistant />
+      <VoiceControl />
+      <ThemeCustomizer />
       
       {/* Floating Theme Toggle */}
       <div className="fixed top-6 right-6 z-50">
@@ -75,13 +89,15 @@ const Index = () => {
       <main className="min-h-screen">
       {/* Hero Section */}
       <section 
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        id="home"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20"
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(15, 15, 25, 0.7), rgba(15, 15, 25, 0.9)), url(${heroBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
+        <CodeRain />
         {/* Animated gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 animate-gradient" />
         
@@ -177,7 +193,7 @@ const Index = () => {
       <AnimatedStats />
 
       {/* Skills Section */}
-      <section className="py-20 px-4 relative">
+      <section id="skills" className="py-20 px-4 relative scroll-mt-20">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
         <div className="container mx-auto max-w-6xl relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -267,11 +283,23 @@ const Index = () => {
       {/* Experience Timeline */}
       <ExperienceTimeline />
 
+      {/* Interactive 3D Skills */}
+      <SkillsSphere3D />
+
       {/* Skills with Ratings */}
       <SkillsWithRatings />
 
+      {/* Skill Tree (Gamified) */}
+      <SkillTree />
+
+      {/* Code Playground */}
+      <CodePlayground />
+
       {/* Projects with Filter */}
       <ProjectsWithFilter />
+
+      {/* GitHub Activity */}
+      <GitHubActivity />
 
       {/* Certifications & Badges */}
       <CertificationsBadges />
@@ -281,6 +309,9 @@ const Index = () => {
 
       {/* Testimonials Section */}
       <TestimonialsSection />
+
+      {/* Performance Metrics */}
+      <PerformanceMetrics />
 
       {/* Newsletter */}
       <Newsletter />

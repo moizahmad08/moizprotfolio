@@ -14,7 +14,141 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      conversations: {
+        Row: {
+          created_at: string | null
+          id: string
+          message: string
+          response: string
+          session_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          message: string
+          response: string
+          session_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          message?: string
+          response?: string
+          session_id?: string
+        }
+        Relationships: []
+      }
+      github_activity: {
+        Row: {
+          activity_type: string
+          cached_at: string | null
+          created_at: string
+          id: string
+          message: string | null
+          repo_name: string
+          url: string | null
+        }
+        Insert: {
+          activity_type: string
+          cached_at?: string | null
+          created_at: string
+          id?: string
+          message?: string | null
+          repo_name: string
+          url?: string | null
+        }
+        Update: {
+          activity_type?: string
+          cached_at?: string | null
+          created_at?: string
+          id?: string
+          message?: string | null
+          repo_name?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
+      page_views: {
+        Row: {
+          duration: number | null
+          id: string
+          page: string
+          viewed_at: string | null
+          visitor_id: string
+        }
+        Insert: {
+          duration?: number | null
+          id?: string
+          page: string
+          viewed_at?: string | null
+          visitor_id: string
+        }
+        Update: {
+          duration?: number | null
+          id?: string
+          page?: string
+          viewed_at?: string | null
+          visitor_id?: string
+        }
+        Relationships: []
+      }
+      saved_code: {
+        Row: {
+          code: string
+          created_at: string | null
+          id: string
+          language: string
+          session_id: string
+          title: string
+        }
+        Insert: {
+          code: string
+          created_at?: string | null
+          id?: string
+          language?: string
+          session_id: string
+          title: string
+        }
+        Update: {
+          code?: string
+          created_at?: string | null
+          id?: string
+          language?: string
+          session_id?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      user_preferences: {
+        Row: {
+          code_rain_enabled: boolean | null
+          custom_colors: Json | null
+          id: string
+          session_id: string
+          theme_preset: string | null
+          updated_at: string | null
+          voice_enabled: boolean | null
+        }
+        Insert: {
+          code_rain_enabled?: boolean | null
+          custom_colors?: Json | null
+          id?: string
+          session_id: string
+          theme_preset?: string | null
+          updated_at?: string | null
+          voice_enabled?: boolean | null
+        }
+        Update: {
+          code_rain_enabled?: boolean | null
+          custom_colors?: Json | null
+          id?: string
+          session_id?: string
+          theme_preset?: string | null
+          updated_at?: string | null
+          voice_enabled?: boolean | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
